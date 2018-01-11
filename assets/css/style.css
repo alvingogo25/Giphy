@@ -1,0 +1,39 @@
+body {
+  font-family: 'Boogaloo', cursive;
+}
+.gif {
+  height: 45px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 20px;
+  margin: 5px;
+  background-color: lightblue;
+  font-family: 'Boogaloo', cursive;
+
+}
+
+h1 {
+  font-family: 'Chewy', cursive;
+}
+
+.select {
+  cursor: pointer;
+  background-color: lightgreen;
+}
+
+.gif:hover {
+  background-color: lightgreen;
+}
+
+p {
+  font-size: 20px;
+}
+
+.center {
+  text-align: center;
+}
+
+#image {
+  display: inline-block;
+  margin: 10px;
+}

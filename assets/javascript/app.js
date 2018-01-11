@@ -9,6 +9,8 @@ $(document).ready(function(){
 
 $("#buttons-here").on("click", ".gif", function(event) {
   event.preventDefault();
+  $('.gif').removeClass('select');
+  $(this).addClass('select');
   $('#gif-here').empty();
   var character = $(this).attr("data-char");
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + character + "&api_key=xkmLs2xbMTJHxfZ22ruEgWEhL8o2p9dJ&limit=10";
@@ -21,13 +23,14 @@ $("#buttons-here").on("click", ".gif", function(event) {
 
   .done(function(response) {
     var results = response.data;
-    $('#gif-here').append("<p id='instructions'>Click to Animate!")
+    $('#gif-here').append("<p class='center'>Click to Animate!")
     for (var i = 0; i < results.length; i++) {
       // check ratings
       if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
         var imgDiv = $("<div>");
+        imgDiv.attr('id', 'image');
         // shows rating
-        imgDiv.append("<p>Rating: " + results[i].rating);
+        imgDiv.append("<p>Rating: " + results[i].rating.toUpperCase());
 
         var charImage = $("<img>");
 
@@ -64,8 +67,10 @@ $('#gif-here').on('click', '.giph', function() {
 
 // adds new character and button
 $('#addNew').click(function() {
-  charArray.push($('#new').val());
-  buttons($('#new').val());
+  if ($('#new').val()){
+    charArray.push($('#new').val());
+    buttons($('#new').val());
+  }
 })
 
 // displays button
